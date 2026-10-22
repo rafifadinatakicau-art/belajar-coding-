@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Muhamad Rafif Adinata</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts untuk tampilan font yang modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HALAMAN UTAMA (TOMBOL LANJUT) -->
+    <div id="welcome-screen" class="screen active">
+        <div class="welcome-card">
+            <h1>Selamat Datang di Website Saya</h1>
+            <p>Silakan klik tombol di bawah untuk melihat profil lengkap.</p>
+            <button id="btn-lanjut" class="btn-primary">Lanjut</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN PROFIL (SETELAH KLIK LANJUT) -->
+    <div id="profile-screen" class="screen">
+        <div class="profile-card">
+            <!-- Tempat Foto Anda (Ganti foto-rafif.jpg dengan nama file foto Anda atau URL gambar) -->
+            <div class="photo-container">
+                <img src="foto-rafif.jpg" alt="Foto Muhamad Rafif Adinata" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <h2>MUHAMAD RAFIF ADINATA</h2>
+                <p class="school">SMA Negeri 1 Bantur</p>
+                <div class="divider"></div>
+                <p class="bio">Selamat datang di halaman perkenalan diri saya. Senang bisa berkenalan dengan Anda!</p>
+                
+                <button id="btn-kembali" class="btn-secondary">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
