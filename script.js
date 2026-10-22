@@ -1,21 +1,23 @@
-const btnLanjut = document.getElementById('btn-lanjut');
-const btnKembali = document.getElementById('btn-kembali');
-const welcomeScreen = document.getElementById('welcome-screen');
-const profileScreen = document.getElementById('profile-screen');
+// Mengambil elemen dari DOM
+const greetBtn = document.getElementById('greetBtn');
+const messageBox = document.getElementById('messageBox');
 
-btnLanjut.addEventListener('click', () => {
-    // Memunculkan kotak konfirmasi (Pop-up) sesuai permintaan
-    const konfirmasi = confirm("Pastikan Anda yakin ingin melanjutkan?");
+// Daftar pesan sambutan interaktif secara bergantian
+const messages = [
+    "Halo! Terima kasih sudah berkunjung ke profil Muhamad Rafif Adinata. 🚀",
+    "Semangat terus belajar kodingnya di TIK Tingkat Lanjut! ✨",
+    "Tetap berkarya dan buat website yang luar biasa! 💻",
+    "Salam kenal dari sistem interaktif JavaScript! 👋"
+];
+
+let messageIndex = 0;
+
+// Event listener saat tombol diklik
+greetBtn.addEventListener('click', () => {
+    // Tampilkan pesan
+    messageBox.textContent = messages[messageIndex];
+    messageBox.classList.remove('hidden');
     
-    if (konfirmasi) {
-        // Berpindah dari halaman awal ke halaman profil
-        welcomeScreen.classList.remove('active');
-        profileScreen.classList.add('active');
-    }
-});
-
-btnKembali.addEventListener('click', () => {
-    // Kembali ke halaman awal
-    profileScreen.classList.remove('active');
-    welcomeScreen.classList.add('active');
-});
+    // Putar indeks pesan untuk klik berikutnya
+    messageIndex = (messageIndex + 1) % messages.length;
+});y
