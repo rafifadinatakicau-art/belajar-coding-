@@ -1,133 +1,221 @@
+/* Reset dan Pengaturan Dasar */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    color: #f8fafc;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
+    padding: 20px;
 }
 
-/* Pengaturan Tampilan Halaman */
-.screen {
-    display: none;
+/* Kontainer Utama */
+.container {
     width: 100%;
     max-width: 450px;
-    padding: 20px;
-    animation: fadeIn 0.5s ease-in-out;
 }
 
-.screen.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Kartu Selamat Datang */
-.welcome-card, .profile-card {
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+/* Kartu Profil */
+.profile-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     text-align: center;
+    transition: transform 0.3s ease;
 }
 
-.welcome-card h1 {
-    font-size: 24px;
-    color: #2d3748;
-    margin-bottom: 15px;
+.profile-card:hover {
+    transform: translateY(-5px);
 }
 
-.welcome-card p {
-    color: #718096;
-    font-size: 14px;
-    margin-bottom: 25px;
+/* Header Indikator Online */
+.profile-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
 }
 
-/* Tombol */
-.btn-primary {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-primary:hover {
-    background: #5a67d8;
-    transform: scale(1.05);
-}
-
-.btn-secondary {
-    background: #edf2f7;
-    color: #4a5568;
-    border: none;
-    padding: 10px 25px;
-    font-size: 14px;
-    font-weight: 600;
+.badge-status {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
     border-radius: 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(52, 211, 153, 0.3);
 }
 
-.btn-secondary:hover {
-    background: #e2e8f0;
+.dot {
+    width: 7px;
+    height: 7px;
+    background-color: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #34d399;
+    animation: pulse 2s infinite;
 }
 
-/* Bagian Profil & Foto */
-.photo-container {
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* Foto Profil & Efek Lingkaran */
+.profile-img-container {
+    position: relative;
     width: 130px;
     height: 130px;
     margin: 0 auto 20px auto;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid #667eea;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-.photo-container img {
+.profile-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #6366f1;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
 }
 
-.profile-info h2 {
-    font-size: 20px;
-    color: #1a202c;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.school {
-    color: #667eea;
-    font-weight: 600;
+.img-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #6366f1;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #1e293b;
     font-size: 14px;
-    margin-bottom: 15px;
 }
 
-.divider {
-    height: 2px;
-    width: 50px;
-    background: #e2e8f0;
-    margin: 0 auto 15px auto;
+/* Informasi Teks */
+.name {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.role {
+    font-size: 14px;
+    color: #818cf8;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Kotak Detail Kelas & Jurusan */
+.details-box {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 12px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.detail-item i {
+    color: #6366f1;
+    font-size: 15px;
+    width: 18px;
 }
 
 .bio {
     font-size: 13px;
-    color: #718096;
+    color: #94a3b8;
     line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Tombol Aksi */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.primary-btn {
+    background: #6366f1;
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.primary-btn:hover {
+    background: #4f46e5;
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Pesan Interaktif JavaScript */
+.message-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 8px;
+    font-size: 12px;
+    color: #a5b4fc;
+    animation: fadeIn 0.4s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
