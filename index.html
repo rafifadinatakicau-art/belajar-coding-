@@ -3,41 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil - Muhamad Rafif Adinata</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts untuk tampilan font yang modern -->
-    <link href="<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">" rel="stylesheet">
-</head>
-<body>
+    <title>Muhamad Rafif Adinata - XI TIK Tingkat Lanjut</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- HALAMAN UTAMA (TOMBOL LANJUT) -->
-    <div id="welcome-screen" class="screen active">
-        <div class="welcome-card">
-            <h1>Selamat Datang di Website Saya</h1>
-            <p>Silakan klik tombol di bawah untuk melihat profil lengkap.</p>
-            <button id="btn-lanjut" class="btn-primary">Lanjut</button>
-        </div>
-    </div>
+    <!-- CSS STYLES -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary: #06b6d4;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #f59e0b;
+        }
 
-    <!-- HALAMAN PROFIL (SETELAH KLIK LANJUT) -->
-    <div id="profile-screen" class="screen">
-        <div class="profile-card">
-            <!-- Tempat Foto Anda (Ganti foto-rafif.jpg dengan nama file foto Anda atau URL gambar) -->
-            <div class="photo-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJhXf8POyFChRr32TxaRwBszKT2EL5Vhhd2hgoVh2q3g&s=10" alt="Foto Muhamad Rafif Adinata" id="profile-photo">
-            </div>
-            
-            <div class="profile-info">
-                <h2>MUHAMAD RAFIF ADINATA</h2>
-                <p class="school">SMA Negeri 1 Bantur</p>
-                <div class="divider"></div>
-                <p class="bio">Selamat datang di halaman perkenalan diri saya. Senang bisa berkenalan dengan Anda!</p>
-                
-                <button id="btn-kembali" class="btn-secondary">Kembali</button>
-            </div>
-        </div>
-    </div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            padding-bottom: 50px;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .profile-avatar {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #1e293b;
+        }
+
+        .profile-info h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+            padding
